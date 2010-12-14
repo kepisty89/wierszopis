@@ -4,9 +4,9 @@ Wierszopis - serwis na ASI
 [Dokument Wizji]
 
 Dokument wizji dla projektu "Wierszopis":
-- Artur Rybak
-- Daniel Landowski
-- Łukasz Kępiński
+- Artur Rybak,
+- Daniel Landowski,
+- Łukasz Kępiński.
 
 Data: 12.01.2011r.
 
@@ -88,3 +88,4 @@ Dodatkowo chcialibyśmy wprowadzić:
  - autorzy swoich wierszy nie mogą ingerować w twórczość innych,
  - tylko autor, który się zarejestruje w serwisie "Wierszopis" będzie mógł dodawać wiersze,
  - każdy wiersz musi posiadać co najmniej jeden tag i przynależeć do przynajmniej jednej kategorii. 
+
