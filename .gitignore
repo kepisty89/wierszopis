@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+lib/log/*.log
+lib/tmp/**/*
+*.gem
+*~
+.\#*
+\#*
