@@ -7,6 +7,14 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="header">
+<%= link_to 'Wiersze', poems_path %> |
+<%= link_to 'Rozdzialy', chapters_path %> |
+<%= link_to 'Autorzy', users_path %> |
+<%= link_to 'Profile', profiles_path %> |
+<%= link_to 'Komentarze', comments_path %> &nbsp;
+linki czysto poglądowe, do navigacji podczas rozwoju aplikacji
+</div>
 
 <%= yield %>
 
