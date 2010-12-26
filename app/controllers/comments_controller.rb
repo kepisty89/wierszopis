@@ -5,17 +5,26 @@ class CommentsController < ApplicationController
   def create
     @comment = @poem.comments.new(params[:comment])
     if @comment.save
-      redirect_to @poem, :notice => 'Thanks for your comment'
+      respond_to do |format|
+        format.html { redirect_to @poem, :notice => 'Thanks for your comment' }
+        format.js
+      end
     else
-      redirect_to @poem, :alert => 'Unable to add comment'
+      respond_to do |format|
+        format.html { redirect_to @poem, :alert => 'Unable to add comment' }
+        format.js { render 'fail_create.js.erb' }
+      end
     end
   end
 
   def destroy
     @poem = current_user.poems.find(params[:poem_id])
     @comment = @poem.comments.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to @poem, :notice => 'Comment deleted' }
+      format.js
+    end
     @comment.destroy
-    redirect_to @poem, :notice => 'Comment deleted'
   end
 
   private

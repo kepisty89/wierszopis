@@ -1,4 +1,5 @@
-<%= form_for([@poem, @poem.comments.new]) do |f| %>
+<%= form_for([@poem, @poem.comments.new], :html => {:style =>
+'display: none;'}) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

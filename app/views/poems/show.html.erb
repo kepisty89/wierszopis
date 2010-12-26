@@ -5,4 +5,4 @@
   <%= render @poem.comments %>
 </div>
 
-<%= render :file => 'comments/new' %>
+<%= link_to "New comment", new_poem_comment_path(@poem, :format => :js), :remote => true, :id => 'new_comment_link' %>
