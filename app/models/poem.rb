@@ -9,5 +9,23 @@ class Poem < ActiveRecord::Base
   validates :body, :presence => true
   
   scope :recent, lambda { |term| order("poems.created_at DESC").limit("#{term}") }
-                                  
+
+  def owned_by?(owner)
+    return false unless owner.is_a? User
+    user == owner
+  end
+
+  def user_name
+    usr = self.user
+    if usr.is_a? User
+      prof = Profile.find_by_user_id(usr)
+      if prof.is_a? Profile
+        return prof.name + " " + prof.surname
+      else
+        return usr.email
+      end
+    else
+      return " "
+    end
+  end
 end

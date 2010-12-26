@@ -1,4 +1,6 @@
 class PoemsController < ApplicationController
+  before_filter :authenticate, :except => [:index, :show]
+
   # GET /poems
   # GET /poems.xml
   def index
@@ -34,13 +36,13 @@ class PoemsController < ApplicationController
 
   # GET /poems/1/edit
   def edit
-    @poem = Poem.find(params[:id])
+    @poem = current_user.poems.find(params[:id])
   end
 
   # POST /poems
   # POST /poems.xml
   def create
-    @poem = Poem.new(params[:poem])
+    @poem = current_user.poems.new(params[:poem])
 
     respond_to do |format|
       if @poem.save
@@ -56,7 +58,7 @@ class PoemsController < ApplicationController
   # PUT /poems/1
   # PUT /poems/1.xml
   def update
-    @poem = Poem.find(params[:id])
+    @poem = current_user.poems.find(params[:id])
 
     respond_to do |format|
       if @poem.update_attributes(params[:poem])
@@ -72,7 +74,7 @@ class PoemsController < ApplicationController
   # DELETE /poems/1
   # DELETE /poems/1.xml
   def destroy
-    @poem = Poem.find(params[:id])
+    @poem = current_user.poems.find(params[:id])
     @poem.destroy
 
     respond_to do |format|

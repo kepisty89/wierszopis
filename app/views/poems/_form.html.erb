@@ -20,8 +20,10 @@
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label :chapter_id %><br />
-    <%= f.text_field :chapter_id %>
+    <%= f.label "Chapter" %><br />
+    <%= select_tag "Chapter",
+    options_from_collection_for_select(current_user.chapters.all, 'id', 'name'),
+    :include_blank => true  %>
   </div>
   <div class="field">
     <%= f.label :tags %><br />
@@ -32,6 +34,6 @@
     <%= f.date_select :composed_at %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_or_cancel(f) %>
   </div>
 <% end %>

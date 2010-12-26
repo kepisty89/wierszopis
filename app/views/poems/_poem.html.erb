@@ -1,10 +1,15 @@
 <%= div_for poem do %>
 <h3>
   <%= link_to poem.title, poem %>
+  <span class='author'>
+    <%= poem.user_name %>
+  </span>
+  <% if poem.owned_by? current_user %>
   <span class='actions'>
     <%= link_to "Edit", edit_poem_path(poem) %>
     <%= link_to "Delete", poem, :confirm => "Are you sure?", :method => :delete %>
   </span>
+  <% end %>
 </h3>
-<%= poem.body %>
+<%= simple_format poem.body %>
 <% end %>

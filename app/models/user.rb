@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   
   # model dependencies
   has_one :proile, :dependent => :destroy
-  has_many :chapters, :order => 'title ASC', :dependent => :destroy
+  has_many :chapters, :order => 'name ASC', :dependent => :destroy
   has_many :poems, :order => 'created_at DESC, composed_at DESC, title ASC', :dependent => :destroy
   has_many :comments, :order => 'created_at DESC', :dependent => :nullify
   has_many :replies, :through => :poems, :source => :comments, :order => 'created_at DESC'
