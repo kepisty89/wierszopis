@@ -1,0 +1,10 @@
+<%= div_for poem do %>
+<h3>
+  <%= link_to poem.title, poem %>
+  <span class='actions'>
+    <%= link_to "Edit", edit_poem_path(poem) %>
+    <%= link_to "Delete", poem, :confirm => "Are you sure?", :method => :delete %>
+  </span>
+</h3>
+<%= poem.body %>
+<% end %>

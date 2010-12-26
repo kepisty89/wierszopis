@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101225220909) do
+ActiveRecord::Schema.define(:version => 20101226003401) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "user_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20101225220909) do
   create_table "users", :force => true do |t|
     t.string   "nickname"
     t.string   "email"
-    t.string   "password"
+    t.string   "hashed_password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

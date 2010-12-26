@@ -1,5 +1,17 @@
-<h1>New comment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', comments_path %>
+<%= form_for([@poem, @poem.comments.new]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Add' %>
+  </div>
+<% end %>
