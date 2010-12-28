@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101226120838) do
+ActiveRecord::Schema.define(:version => 20101227200311) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "user_id"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20101226120838) do
   create_table "poems", :force => true do |t|
     t.integer  "user_id"
     t.integer  "chapter_id"
-    t.string   "tags"
     t.date     "composed_at"
     t.text     "body"
     t.datetime "created_at"

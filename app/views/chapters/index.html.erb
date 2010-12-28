@@ -13,13 +13,13 @@
   <tr>
     <td><%= chapter.name %></td>
     <td><%= chapter.description %></td>
-    <td><%= link_to 'Show', chapter %></td>
-    <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
-    <td><%= link_to 'Destroy', chapter, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', user_chapters_path %></td>
+    <td><%= link_to 'Edit', edit_user_chapter_path(chapter, current_user) %></td>
+    <td><%= link_to 'Destroy', user_chapter_path(chapter, current_user), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Chapter', new_chapter_path %>
+<%= link_to 'New Chapter', new_user_chapter_path(current_user) %>

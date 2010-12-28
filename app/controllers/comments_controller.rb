@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :load_poem
+  before_filter :load_poem, :except => :destroy
   before_filter :authenticate, :only => :destroy
 
   def create

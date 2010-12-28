@@ -10,20 +10,20 @@
     <div id="header">
       <h1><%= link_to "Wierszopis", root_path %></h1>
       <div id="user_bar">
-        <%= link_to "Poems", poems_path %> |
-        <%= link_to "Chapters", chapters_path %> |
-        <%= link_to "(Users)", users_path %> |
-        <%= link_to "Profiles", profiles_path %> |
+        <%= link_to "All Poems", poems_path %> |
         <% if logged_in? %>
+        <%= link_to "Chapters", user_chapters_path(current_user)  %> |
         <%= link_to "New Poem", new_poem_path %> |
-        <%= link_to "Edit Password", edit_user_path(current_user) %> |
+        <%= link_to "Account", user_path(current_user) %> |
+        <%= link_to "Profile", profile_path(current_user) %> |
         <%= link_to "Logout", logout_path %>
          <span style="display:block;">
            Witaj <strong><%= current_user.nickname + "! <" +
-           current_user.email + ">" %></strong>
+           current_user.full_name + ">" %></strong>
          </span>
         <% else %>
-        <%= link_to "Login", login_path %>
+        <%= link_to "Login", login_path %> or 
+        <%= link_to "Register", new_user_path %>
         <% end %>
       </div>
     </div>

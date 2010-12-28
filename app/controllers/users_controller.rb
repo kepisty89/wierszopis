@@ -4,11 +4,16 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+  def show
+    @user = current_user
+  end
   
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to articles_path, :notice => 'User successfully added.'
+      User.authenticate(@user.email, @user.password)
+      redirect_to poems_path, :notice => 'User successfully added.'
     else
       render :action => 'new'
     end
@@ -21,10 +26,17 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to articles_path,
+      redirect_to poems_path,
       :notice => 'Updated user information successfully.'
     else
       render :action => 'edit'
     end
+  end
+
+  def chapters
+    @user = current_user
+    @chapters = @user.chapters
+
+    render @chapters
   end
 end

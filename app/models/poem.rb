@@ -15,10 +15,10 @@ class Poem < ActiveRecord::Base
     user == owner
   end
 
-  def user_name
+  def author
     usr = self.user
     if usr.is_a? User
-      prof = Profile.find_by_user_id(usr)
+      prof = usr.profile
       if prof.is_a? Profile
         return prof.name + " " + prof.surname
       else

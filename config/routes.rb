@@ -1,7 +1,8 @@
 Wierszopis::Application.routes.draw do
   resources :profiles
-  resources :chapters
-  resources :users
+  resources :users do
+    resources :chapters
+  end
   resources :poems do
     resources :comments
   end

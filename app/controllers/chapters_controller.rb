@@ -2,7 +2,7 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.xml
   def index
-    @chapters = Chapter.all
+    @chapters = current_user.chapters.all
 
     respond_to do |format|
       format.html # index.html.erb

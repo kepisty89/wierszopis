@@ -5,13 +5,14 @@ class User < ActiveRecord::Base
   # for non existing active-record position
   
   # model dependencies
-  has_one :proile, :dependent => :destroy
+  has_one :profile, :dependent => :destroy
   has_many :chapters, :order => 'name ASC', :dependent => :destroy
   has_many :poems, :order => 'created_at DESC, composed_at DESC, title ASC', :dependent => :destroy
   has_many :comments, :order => 'created_at DESC', :dependent => :nullify
   has_many :replies, :through => :poems, :source => :comments, :order => 'created_at DESC'
 
   # validators
+  validates :nickname, :uniqueness => true
   validates :email, :presence => true, :uniqueness => true, :format => { :with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i }
   validates :password, :confirmation => true, :length => { :within => 8..64 }, :presence => true, :if => :password_required?
 
@@ -31,6 +32,14 @@ class User < ActiveRecord::Base
   
   def authenticated?(password)
     self.hashed_password == encrypt(password)
+  end
+
+  def full_name
+    if profile.is_a? Profile
+      return profile.name + " " + profile.surname
+    else
+      return " "
+    end
   end
   
   protected
