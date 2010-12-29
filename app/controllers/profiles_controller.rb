@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.xml
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
 
     respond_to do |format|
       format.html # show.html.erb

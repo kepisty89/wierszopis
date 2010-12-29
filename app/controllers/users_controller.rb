@@ -13,7 +13,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       User.authenticate(@user.email, @user.password)
-      redirect_to poems_path, :notice => 'User successfully added.'
+      profile = Profile.new
+      profile.save
+      @user.profile = profile
+      session[:user_id] = @user.id
+      redirect_to poems_path,  :notice => 'User added and Logged In. Please update your Profile'
     else
       render :action => 'new'
     end

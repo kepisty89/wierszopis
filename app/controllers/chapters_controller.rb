@@ -41,6 +41,7 @@ class ChaptersController < ApplicationController
   # POST /chapters.xml
   def create
     @chapter = Chapter.new(params[:chapter])
+    @chapter.user_id = current_user.id
 
     respond_to do |format|
       if @chapter.save

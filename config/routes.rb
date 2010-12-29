@@ -3,6 +3,7 @@ Wierszopis::Application.routes.draw do
   resources :users do
     resources :chapters
   end
+  resources :chapters
   resources :poems do
     resources :comments
   end

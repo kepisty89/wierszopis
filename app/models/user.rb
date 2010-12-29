@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def full_name
     if profile.is_a? Profile
-      return profile.name + " " + profile.surname
+      return profile.full_name
     else
       return " "
     end
