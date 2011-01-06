@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wierszopis</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery-1.4.4.min', 'rails', 'application' %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div id="header">
+      <h1><%= link_to "Wierszopis", root_path %></h1>
+      <div id="user_bar">
+        <%= link_to "All Poems", poems_path %> |
+        <% if logged_in? %>
+        <%= link_to "Chapters", user_chapters_path(current_user)  %> |
+        <%= link_to "New Poem", new_poem_path %> |
+        <%= link_to "Account", user_path(current_user) %> |
+        <%= link_to "Profile", profile_path(current_user) %> |
+        <%= link_to "Logout", logout_path %>
+         <span style="display:block;">
+           Witaj <strong><%= current_user.nickname + "! <" +
+           current_user.full_name + ">" %></strong>
+         </span>
+        <% else %>
+        <%= link_to "Login", login_path %> or 
+        <%= link_to "Register", new_user_path %>
+        <% end %>
+      </div>
+    </div>
+    <div id="main">
+
+    <%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+    <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+
+    <%= yield %>
+
+    </div>
+    <div id="footer">Powered by <a href="http://wierszopis.art.pl">Wierszopis</a></div>
+
+  </body>
+</html>
