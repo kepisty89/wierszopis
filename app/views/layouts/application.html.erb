@@ -23,7 +23,7 @@
     	  <div id="site_title">
 	    <% if logged_in? %>
 	    
-	    <a href="/poems"><strong><i><%= current_user.nickname + "," + " wyraź siebie!" %></i></strong></a>
+	    <a href="/poems"><strong><i><%= current_user.full_name + "," + " wyraź siebie!" %></i></strong></a>
 
 	    <% else %>		
 	    <a href="/poems"><i>Wyraź siebie...</i></a>
@@ -49,7 +49,6 @@
             <div id="templatemo_menu">
               <ul>
 		<% if logged_in? %>
-
 		<li><%= link_to "Wyloguj", logout_path %></li>
                 <li><%= link_to "Profil", profile_path(current_user) %></li>
 		<li><%= link_to "Konto", user_path(current_user) %></li>
