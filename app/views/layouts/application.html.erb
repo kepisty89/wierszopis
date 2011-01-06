@@ -5,7 +5,9 @@
     <title>Wierszopis - wyraź siebie | wiersze | poematy | twórczość</title>
     <meta name="keywords" content="Ancient Blog Template HTML CSS" />
     <meta name="description" content="Ancient Blog Template (HTML/CSS) is provided by templatemo.com" />
-    <link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag 'jquery-1.4.4.min', 'rails', 'application' %>
+    <%= csrf_meta_tag %>
     <script language="javascript" type="text/javascript">
       function clearText(field)
       {
@@ -106,22 +108,22 @@
             
             <div class="sidebar_box_wrapper">
 
+              <% if current_user.is_a? User %>
               <div class="sidebar_box">
-                <div class="sb_title"><img src="images/categories.png" alt="Categories" /></div>
+                <div class="sb_title"><img src="../images/categories.png" alt="Categories" /></div>
                 <div class="sb_content">
                   <ul class="tmo_list">
-                    <li><a href="#">Curabitur quis velit quis tortor</a></li>
-                    <li><a href="#">Sed ut perspiciatis unde omnis</a></li>
-                    <li><a href="#">Fnatus error sit voluptatem</a></li>
-                    <li><a href="#">Cum sociis natoque penatibus</a></li>
-                    <li><a href="#">Rotam rem aperiame</a></li>
-                    <li><a href="#">Veritatis quasi architecto</a></li>
+                    <% user_chapters(current_user).each do |ch| %>
+                    <li><%= link_to ch.name,
+                    user_chapter_path(current_user, ch) %></li>
+                    <% end %>
                   </ul>	
                 </div>
               </div>
+              <% end %>
               
               <div class="sidebar_box">
-                <div class="sb_title"><img src="images/recent_blog_entries.png" alt="Recent Blog Entries" /></div>
+                <div class="sb_title"><img src="../images/recent_blog_entries.png" alt="Recent Blog Entries" /></div>
                 <div class="sb_content">
                   <ul class="tmo_list">
                     <% recent_poems.each do |p| %>

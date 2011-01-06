@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def user_chapters(user)
+    return @chapters = user.chapters.all
+  end
+
+  helper_method :user_chapters
+  
   def recent_poems
     return @recent = Poem.recent(6)
   end
