@@ -110,7 +110,7 @@
 
               <% if current_user.is_a? User %>
               <div class="sidebar_box">
-                <div class="sb_title"><img src="../images/categories.png" alt="Categories" /></div>
+                <div class="sb_title"><%= image_tag("categories.png") %></div>
                 <div class="sb_content">
                   <ul class="tmo_list">
                     <% user_chapters(current_user).each do |ch| %>
@@ -123,7 +123,7 @@
               <% end %>
               
               <div class="sidebar_box">
-                <div class="sb_title"><img src="../images/recent_blog_entries.png" alt="Recent Blog Entries" /></div>
+                <div class="sb_title"><%= image_tag("recent_blog_entries.png") %></div>
                 <div class="sb_content">
                   <ul class="tmo_list">
                     <% recent_poems.each do |p| %>
