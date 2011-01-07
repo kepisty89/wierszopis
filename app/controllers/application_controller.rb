@@ -1,6 +1,18 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  def user_chapters(user)
+    return @chapters = user.chapters.all
+  end
+
+  helper_method :user_chapters
+  
+  def recent_poems
+    return @recent = Poem.recent(6)
+  end
+
+  helper_method :recent_poems
+  
   protected
   # Returns currently logged in User or nil if there isn't one
   def current_user

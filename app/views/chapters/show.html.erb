@@ -10,5 +10,12 @@
   <%= @chapter.description %>
 </p>
 
+<p>
+  <b>POEMS:</b>
+  <% Poem.find_all_by_chapter_id(@chapter).each do |p| %>
+  <li><%= link_to p.title, poem_path(p) %></li>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %>

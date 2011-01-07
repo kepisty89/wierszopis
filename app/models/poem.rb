@@ -17,15 +17,6 @@ class Poem < ActiveRecord::Base
 
   def author
     usr = self.user
-    if usr.is_a? User
-      prof = usr.profile
-      if prof.is_a? Profile
-        return prof.name + " " + prof.surname
-      else
-        return usr.email
-      end
-    else
-      return " "
-    end
+    return usr.profile.full_name
   end
 end

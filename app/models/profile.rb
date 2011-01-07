@@ -1,19 +1,15 @@
 class Profile < ActiveRecord::Base  
   belongs_to :user
 
-  def full_name
-    if name
-      if surname
-        return name + " " + surname
-      else
-        return name
-      end
+  def mks(nf)
+    if nf.nil?
+      return ""
     else
-      if surname
-        return surname
-      else
-        return " "
-      end
+      return nf
     end
+  end
+  
+  def full_name
+    return mks(name) + " " + mks(surname)
   end
 end

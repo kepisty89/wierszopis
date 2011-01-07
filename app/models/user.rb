@@ -35,10 +35,13 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    if profile.is_a? Profile
-      return profile.full_name
-    else
-      return " "
+    if self.profile.is_a? Profile
+      fullname = profile.full_name
+      if fullname.blank?
+        return self.nickname
+      else
+        return fullname
+      end
     end
   end
   
