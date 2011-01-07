@@ -82,4 +82,8 @@ class PoemsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def find
+  	@found_poems = Poem.find_all_by_title(params[:search_string])
+  end
 end

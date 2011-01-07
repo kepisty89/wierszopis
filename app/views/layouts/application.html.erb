@@ -29,11 +29,17 @@
             <a href="#" class="button rss"></a>
             
             <div id="search_box">
+            	<% form_tag "/poems/find" do %>
+            	<%= text_field_tag :search_string %>
+            	<%= submit_tag "Znajdź wiersz" %>
+            	<% end %>
+                <!--
                 <form action="#" method="get">
                     <input type="text" value="Szukaj w serwisie..." name="q" size="10" id="searchfield" 
 			   title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
                   <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
                 </form>
+                -->
             </div>
         
             <div id="templatemo_menu">
