@@ -59,7 +59,7 @@ em { color: #fff; font-weight: 400 }
 .tmo_list li { color:#9c7449; margin:0 0 5px; padding: 3px 0 3px 15px; background:url(../images/templatemo_list.png) no-repeat scroll 0 10px }
 .tmo_list li a { color: #9c7449; text-decoration: underline }
 .tmo_list li a:hover { color: #AAAA00 }
-.tmo_list li.col_3 { display: block; float: left; width: 170px; }
+.tmo_list li.col_3 { display: block; float: left; width: 100px; }
 
 
 #templatemo_wrapper_01 { width: 100%; background: url(../images/templatemo_header.jpg) no-repeat center top }
