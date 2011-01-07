@@ -1,22 +1,48 @@
-<h1>Listing chapters</h1>
+<h2>Rodziały</h2>
 
-<table>
+<div id="poems">
+
+
+
+<table width="560">
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th width="160px">Rodział</th>
+    <th width="160px">Opis</th>
+    <th></th>
+    <th></th>
+    <th>Opcje</th>
   </tr>
 
 <% @chapters.each do |chapter| %>
   <tr>
-    <td><%= chapter.name %></td>
-    <td><%= chapter.description %></td>
-    <td><%= link_to 'Show', user_chapter_path(current_user, chapter) %></td>
-    <td><%= link_to 'Edit', edit_user_chapter_path(current_user, chapter) %></td>
-    <td><%= link_to 'Destroy', user_chapter_path(current_user, chapter), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td width="160px" align="center"><%= chapter.name %></td>
+    <td width="160px" align="center"><%= chapter.description %></td>
+	<td width="200px"></td>
+    <td>   <%= link_to image_tag("show.png"), user_chapter_path(current_user, chapter) %></td>
+    <td>   <%= link_to image_tag("edit.png"), edit_user_chapter_path(current_user, chapter) %></td>
+    <td>   <%= link_to image_tag("delete.png"), user_chapter_path(current_user, chapter), :confirm => 'Are you sure?', :method => :delete %></td>
+
   </tr>
 <% end %>
+
 </table>
+
+</div>
 
 <br />
 
-<%= link_to 'New Chapter', new_user_chapter_path(current_user) %>
+<p>
+   <%= link_to image_tag("add.png"), new_user_chapter_path(current_user) %>
+</p>
+
+<br />
+
+
+<p><b>Legenda:</b><br/>
+	<%= image_tag("show.png") %> (pokaż)  |  
+	<%= image_tag("edit.png") %> (edytuj)  |  
+	<%= image_tag("add.png") %> (dodaj) |  
+	<%= image_tag("delete.png") %> (usuń)
+</p>
+
+

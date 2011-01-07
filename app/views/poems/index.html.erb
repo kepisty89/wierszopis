@@ -17,7 +17,8 @@
 <% @poems.each do |poem| %>
   <tr>
     <td width="160px" align="center"><%= poem.title %></td>
-    <td width="160px" align="center">C.<%= poem.title %></td>
+    <td width="160px" align="center"><%= poem.chapter_id %></td>
+
     <td width="160px" align="center"><%= poem.composed_at %></td>	
 	<td width="200px"></td>
     <td><a href="/poems/<%= poem.id %>"><%= image_tag("show.png") %></a></td>
@@ -33,13 +34,20 @@
 
 <br />
 
-<p><%= link_to image_tag("add.png"), new_poem_path %></p>
+<p>
+   <%= link_to image_tag("add.png"), new_poem_path %>
+   <%= link_to image_tag("chapters.png"), chapters_path %>
+</p>
 
 <br />
 
-<!--
+
 <p><b>Legenda:</b><br/>
-<%= image_tag("search_small.png") %> (szukaj)  |  <%= image_tag("show_small.png") %> (pokaż)  |  <%= image_tag("edit_small.png") %> (edytuj)  |  <%= image_tag("add_small.png") %> (dodaj) |  <%= image_tag("delete_small.png") %> (usuń)</p>
--->
+	<%= image_tag("show.png") %> (pokaż)  |  
+	<%= image_tag("edit.png") %> (edytuj)  |  
+	<%= image_tag("add.png") %> (dodaj) |  
+	<%= image_tag("delete.png") %> (usuń) |
+	<%= image_tag("chapters.png") %> (rodziały)
+</p>
 
 

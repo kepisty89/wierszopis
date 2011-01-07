@@ -1,8 +1,20 @@
-<%= render @poem %>
 
-<h3>Comments</h3>
+<h2>Utwór pt. <i>"<%= @poem.title %>"</i></h2>
+<h5><center><%= @poem.body %></center></h5>
+
+
+<br/>
+<hr size="1" width="200" align="left"/>
+<p>Utworzono: <%= @poem.composed_at %></p>
+<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a>
+<%= link_to image_tag("edit.png"), edit_poem_path(@poem)%>
+<br/>
+<br/>
+<br/>
+
+<h6>Komentarze</h2>
 <div id="comments">
   <%= render @poem.comments %>
 </div>
 
-<%= link_to "New comment", new_poem_comment_path(@poem, :format => :js), :remote => true, :id => 'new_comment_link' %>
+<%= link_to "Napisz komentarz!", new_poem_comment_path(@poem, :format => :js), :remote => true, :id => 'new_comment_link' %>

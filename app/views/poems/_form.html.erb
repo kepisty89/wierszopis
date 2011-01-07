@@ -1,36 +1,49 @@
 <%= form_for(@poem) do |f| %>
   <% if @poem.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@poem.errors.count, "error") %> prohibited this poem from being saved:</h2>
+      <font color="red"><h4><%= image_tag  %><%= pluralize(@poem.errors.count, "error") %> prohibited this poem from being saved:</h4>
 
       <ul>
       <% @poem.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+      </font>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label "Tytuł" %><br />
     <%= f.text_field :title %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label "Treść" %><br />
+    <%= f.text_area :body, :size => "80x20" %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :chapter_id %><br />
+    <%= f.label "Rodział" %><br />
     <%= select_tag "poem_chapter_id",
     options_from_collection_for_select(current_user.chapters.all,
     'id', 'name', @poem.chapter_id),:include_blank => true, :name => "poem[chapter_id]"  %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :composed_at %><br />
+    <%= f.label "Napisany:" %><br />
     <%= f.date_select :composed_at, :order => [:day, :month, :year],
     :start_year => Time.now.year - 100, :end_year => Time.now.year %>
   </div>
+  <br/>
+  <br/>
+
   <div class="actions">
-    <%= submit_or_cancel(f) %>
+    <%= image_submit_tag("accept.png") %> (akceptuj) <br/>
+    <a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót)
   </div>
+  <br/>
+
 <% end %>
