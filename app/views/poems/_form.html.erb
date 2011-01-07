@@ -20,14 +20,15 @@
     <%= f.text_area :body %>
   </div>
   <div class="field">
-    <%= f.label "Chapter" %><br />
-    <%= select_tag "Chapter",
+    <%= f.label :chapter_id %><br />
+    <%= select_tag "poem_chapter_id",
     options_from_collection_for_select(current_user.chapters.all,
-    'id', 'name'), :include_blank => true  %>
+    'id', 'name', @poem.chapter_id),:include_blank => true, :name => "poem[chapter_id]"  %>
   </div>
   <div class="field">
     <%= f.label :composed_at %><br />
-    <%= f.date_select :composed_at %>
+    <%= f.date_select :composed_at, :order => [:day, :month, :year],
+    :start_year => Time.now.year - 100, :end_year => Time.now.year %>
   </div>
   <div class="actions">
     <%= submit_or_cancel(f) %>
