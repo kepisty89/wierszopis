@@ -29,11 +29,12 @@
             <a href="#" class="button rss"></a>
             
             <div id="search_box">
+            <!-- NOWA WERSJA WYSZUKIWANIA -->
             	<% form_tag "/poems/find" do %>
             	<%= text_field_tag :search_string %>
             	<%= submit_tag "Znajdź wiersz" %>
             	<% end %>
-                <!--
+                <!-- STARA WERSJA WYSZUKIWANIA
                 <form action="#" method="get">
                     <input type="text" value="Szukaj w serwisie..." name="q" size="10" id="searchfield" 
 			   title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
