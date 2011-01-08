@@ -19,7 +19,11 @@
   <% end %>
 </p>
 
+
 <br/>
-<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a>
-<%= link_to image_tag("edit.png"), edit_chapter_path(@chapter)%>
+<hr size="1" width="200" align="left"/>
+<p>Utworzono: <%= @chapter.created_at %></p>
+<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
+<%= link_to image_tag("edit.png"), edit_chapter_path(@chapter) %> (edytuj) <br/>
+<%= link_to image_tag("index.png"), chapters_path %> (spis wszystkich)
 

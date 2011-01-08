@@ -32,8 +32,8 @@
             <div id="search_box">
             <!-- NOWA WERSJA WYSZUKIWANIA -->
             	<% form_tag "/poems/find" do %>
-            	<%= text_field_tag :search_string %>
-            	<%= submit_tag "Znajdź wiersz" %>
+            	<%= text_field_tag :search_string, "Szukaj tytuł..."  %>
+            	<%= image_submit_tag ("search.png")%>
             	<% end %>
                 <!-- STARA WERSJA WYSZUKIWANIA
                 <form action="#" method="get">
@@ -50,8 +50,8 @@
 
 		    <li><%= link_to "Wyloguj", logout_path %></li>
                     <li><%= link_to "Profil", profile_path(current_user) %></li>
-		    <li><%= link_to "Konto", user_path(current_user) %></li>
-		    <li><%= link_to "Rozdziały", user_chapters_path(current_user)  %></li>
+		    <li><%= link_to "Wiersze", poems_path %></li>
+		    <li><%= link_to "Rozdziały", user_chapters_path(current_user) %></li>
 
 			<% else %>
 
