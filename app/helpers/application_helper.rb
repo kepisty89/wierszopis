@@ -4,4 +4,13 @@ module ApplicationHelper
   def submit_or_cancel(form, name='Cancel')
     form.submit + " or " + link_to(name, 'javascript:history.go(-1);', :class => 'cancel')
   end
+
+  def str_than_nil(nilfull)
+    if nilfull.nil?
+      return ""
+    else
+      return nilfull
+    end
+  end
+
 end

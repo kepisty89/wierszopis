@@ -18,12 +18,14 @@
   <tr>
     <td width="160px" align="center"><%= poem.title %></td>
     <td width="160px" align="center"><%= poem.chapter_id %></td>
-
     <td width="160px" align="center"><%= poem.composed_at %></td>	
 	<td width="200px"></td>
     <td><%= link_to image_tag("show.png"), poem_path(poem) %></td>
+    <% if poem.owned_by? current_user %>
     <td><%= link_to image_tag("edit.png"), edit_poem_path(poem) %></td>
-    <td><%= link_to image_tag("delete.png"), poem, :confirm => "Usunąć wiersz?", :method => :delete %></td>
+    <td><%= link_to image_tag("delete.png"), poem, :confirm => "Usunąć
+    wiersz?", :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 

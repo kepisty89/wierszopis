@@ -5,7 +5,7 @@ class PoemsController < ApplicationController
   # GET /poems.xml
   def index
     @poems = Poem.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @poems }
@@ -37,6 +37,9 @@ class PoemsController < ApplicationController
   # GET /poems/1/edit
   def edit
     @poem = current_user.poems.find(params[:id])
+    unless @poem.owned_by?(current_user)
+      redirect_to(poems_path, :alert => 'Nie jestes autorem tego wiersza!')
+    end
   end
 
   # POST /poems
@@ -59,6 +62,10 @@ class PoemsController < ApplicationController
   # PUT /poems/1.xml
   def update
     @poem = current_user.poems.find(params[:id])
+    unless @poem.owned_by?(current_user)
+      redirect_to(poems_path, :alert => 'Nie jestes autorem tego wiersza!')
+    end
+
 
     respond_to do |format|
       if @poem.update_attributes(params[:poem])
@@ -75,15 +82,19 @@ class PoemsController < ApplicationController
   # DELETE /poems/1.xml
   def destroy
     @poem = current_user.poems.find(params[:id])
-    @poem.destroy
+    unless @poem.owned_by?(current_user)
+      redirect_to(poems_path, :alert => 'Nie jestes autorem tego wiersza!')
+    else
+      @poem.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(poems_url) }
-      format.xml  { head :ok }
+      respond_to do |format|
+        format.html { redirect_to(poems_url, :notice => 'Usunieto wiersz') }
+        format.xml  { head :ok }
+      end
     end
   end
   
   def find
-  	@found_poems = Poem.find_all_by_title(params[:search_string])
+    @found_poems = Poem.find_all_by_title(params[:search_string])
   end
 end

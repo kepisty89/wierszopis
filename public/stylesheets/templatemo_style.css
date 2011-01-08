@@ -11,6 +11,7 @@ body {
 	background-position: top
 }
 
+
 a, a:link, a:visited {
 	color: #990000;
 }
@@ -155,6 +156,23 @@ em { color: #fff; font-weight: 400 }
 .col_w250 { width: 250px }
 .last_box { margin: 0 }
 
+/* komunikaty błędów */
+.notice, .error, .alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+.notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+.error, .alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+
 #templatemo_sidebar {
 	float: right;
 	width: 280px;
@@ -209,3 +227,4 @@ a.ads_125 img { width: 125px; height: 125px; }
 }
 
 #templatemo_footer a { color: #e1cfb5; }
+
