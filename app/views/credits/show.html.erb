@@ -1,0 +1,17 @@
+<h2>O serwisie</h2>
+
+<h3>Autorzy:</h3>
+
+<% @credits.each do |credit| %>
+	<p>
+		<li/>
+			<h4>
+				<%= credit.name %> | <a href="mailto:<%= credit.email %>"><%= credit.email %></a>
+			</h4>
+		&nbsp &nbsp <img src="<%= credit.img_url %>" />
+		<hr width="75%" align="left" />
+		<br/>
+	</p>
+<% end %>
+
+

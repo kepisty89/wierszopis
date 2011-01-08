@@ -4,6 +4,7 @@ Wierszopis::Application.routes.draw do |map|
     resources :chapters
   end
   resources :chapters
+  resources :credits
   resources :poems do 
     resources :comments
   end
