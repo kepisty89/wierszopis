@@ -162,6 +162,11 @@ em { color: #fff; font-weight: 400 }
   margin: 10px 0;
 }
 
+/* zapobieganie 'wybieleniu' pochylonego tekstu */
+.editedText em {
+	color: black;
+}
+
 .notice {
   background-color: #CFC;
   border: solid 1px #6C6;
