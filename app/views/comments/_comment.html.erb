@@ -1,11 +1,16 @@
 <%= div_for comment do %>
-<h3>
-  <%= comment.name %> &lt;<%= comment.email %>&gt; said:
+<h6>
+ <li/> <%= comment.name %> - <%= comment.email %>:
   <% if @poem.owned_by? current_user %>
   <span class='actions'>
-    <%= link_to 'Delete', [@poem, comment], :confirm => 'Are you sure?', :method => :delete %>
+
+    <!-- póki co usuwanie schowamy...
+			<%= link_to 'Delete', [@poem, comment], :confirm => 'Are you sure?', :method => :delete %>
+		-->
+
   </span>
   <% end %>
-</h3>
-<%= comment.body %>
+</h1>
+<p><%= comment.body %></p>
+
 <% end %>

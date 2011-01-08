@@ -1,27 +1,28 @@
 <%= form_for(@comment) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		<font color="red"><h4>Oj, liczba błędów: <%= pluralize(@comment.errors.count, "error") %></h4>
 
       <ul>
       <% @comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+		</font>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Nick" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label "Adres e-mail" %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label "Komentarz" %><br />
+    <%= f.text_area :body, :size=>"10" %>
   </div>
   <div class="actions">
     <%= f.submit %>

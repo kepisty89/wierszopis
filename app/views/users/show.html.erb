@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Dane logowania </h3>
+<br/>
+
 <p>
-  <b>Nickname:</b>
+  <b>Login:</b>
   <%= @user.nickname %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Adres e-mail:</b>
   <%= @user.email %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %>
+<br/>
+<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
+<%= link_to image_tag("edit.png"), edit_user_path(@user) %> (edytuj) <br/>

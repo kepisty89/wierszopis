@@ -1,45 +1,61 @@
 <%= form_for(@profile) do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+	<font color="red"><h4>Oj, liczba błędów: <%= pluralize(@profile.errors.count, "error") %></h4>
 
       <ul>
       <% @profile.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+     </font>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label "Imię" %><br />
     <%= f.text_field :name %>
   </div>
+
   <div class="field">
-    <%= f.label :surname %><br />
+    <%= f.label "Nazwisko" %><br />
     <%= f.text_field :surname %>
   </div>
+
   <div class="field">
-    <%= f.label :place %><br />
+    <%= f.label "Miasto" %><br />
     <%= f.text_field :place %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :birthday %><br />
+    <%= f.label "Data urodzenia" %><br />
     <%= f.date_select :birthday %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
+    <%= f.label "Płeć" %><br />
+    <%= f.text_field :gender, :size=>"10" %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :site %><br />
-    <%= f.text_area :site %>
+    <%= f.label "Strona WWW" %><br />
+    <%= f.text_field :site %>
   </div>
+  <br/>
+
   <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
+    <%= f.label "O mnie" %><br />
+    <%= f.text_area :bio, :size=>"60x7" %>
   </div>
+  <br/>
+
   <div class="actions">
-    <%= submit_or_cancel(f) %>
+    <%= image_submit_tag("accept.png") %> (akceptuj) <br/>
+    <a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
   </div>
+  <br/>
+
 <% end %>

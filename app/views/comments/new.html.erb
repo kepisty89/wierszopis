@@ -1,18 +1,22 @@
+
+<br/>
+<hr size="1" width="200" align="left"/>
+
 <%= form_for([@poem, @poem.comments.new], :html => {:style =>
 'display: none;'}) do |f| %>
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label "Nick" %><br />
+    <%= f.text_field :name, :size=>"20"%>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label "Adres e-mail" %><br />
+    <%= f.text_field :email, :size=>"20" %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label "Komentarz" %><br />
+    <%= f.text_area :body, :size=>"40x7" %>
   </div>
   <div class="actions">
-    <%= f.submit 'Add' %>
+    <%= f.submit 'Kopsnij komenta' %>
   </div>
 <% end %>
