@@ -10,9 +10,9 @@ class Poem < ActiveRecord::Base
   
   scope :recent, lambda { |term| order("poems.created_at DESC").limit("#{term}") }
 
-  def owned_by?(owner)
-    return false unless owner.is_a? User
-    user == owner
+  def owned_by?(current_user)
+    return false unless current_user.is_a? User
+    current_user.id == self.user_id
   end
 
   def author

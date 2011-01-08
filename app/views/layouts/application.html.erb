@@ -75,9 +75,12 @@
         <div id="templatemo_content">
         	
         <div class="content_box">
-
-
-		<%= yield %>
+          
+          <!-- komunkaty błędów -->
+          <%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+          <%= content_tag :p, alert, :class => 'alert' if alert.present? %>
+	
+	  <%= yield %>
 
 	<br/>
 	<br/>
