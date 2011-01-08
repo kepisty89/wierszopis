@@ -1,39 +1,53 @@
 <p id="notice"><%= notice %></p>
 
+<h3>Cześć <%= @profile.name %>! Oto Twój profil:</h3>
+
 <p>
-  <b>Name:</b>
+  <b>Imię:</b>
   <%= @profile.name %>
 </p>
 
 <p>
-  <b>Surname:</b>
+  <b>Nazwisko:</b>
   <%= @profile.surname %>
 </p>
 
 <p>
-  <b>Place:</b>
+  <b>Miasto:</b>
   <%= @profile.place %>
 </p>
 
 <p>
-  <b>Birthday:</b>
+  <b>Urodziny:</b>
   <%= @profile.birthday %>
 </p>
 
 <p>
-  <b>Gender:</b>
+  <b>Płeć:</b>
   <%= @profile.gender %>
 </p>
 
 <p>
-  <b>Site:</b>
+  <b>Strona WWW:</b>
   <%= @profile.site %>
 </p>
 
 <p>
-  <b>Bio:</b>
+  <b>Notka:</b>
   <%= @profile.bio %>
 </p>
 
+<br/>
+<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
+<%= link_to image_tag("edit.png"), edit_profile_path(@profile) %> (edytuj) <br/>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %>
+
+<hr size="1" width="200" align="left"/>
+
+<p>
+ <%= link_to image_tag("account.png"), user_path(current_user) %>  <%= link_to "Przejdź do edycji danych logowania", user_path(current_user)%> <br/>
+</p>
+
+
+
+
