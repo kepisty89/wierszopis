@@ -1,15 +1,25 @@
-<h1>Login</h1>
+<h2>Logowanie</h2>
+<h6>Aby kontynuować, zaloguj się:</h4>
+<center>
+<br/>
+<br/>
 
 <%= form_tag session_path do %>
+
 <div class="field">
-  <%= label_tag 'Email or Nickname' %><br />
+  <%= label_tag 'Login lub adres e-mail' %><br />
   <%= text_field_tag :email %>
 </div>
+<br/>
+
 <div class="field">
-  <%= label_tag :password %>
+  <%= label_tag 'Hasło' %><br/>
   <%= password_field_tag :password %>
 </div>
+<br/>
+
 <div class="actions">
-  <%= submit_tag 'Login' %>
+  <%= image_submit_tag("login.png") %><br/>(logowanie)
 </div>
+</center>
 <% end %>
