@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wierszopis</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag 'application', 'jquery-1.4.4.min', 'rails' %>
+  <%= csrf_meta_tag %>
+<link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+<div id="templatemo_wrapper_01">
+<div id="templatemo_wrapper_02">
+
+    <div id="templatemo_header">
+    	<div id="site_title">
+		<% if logged_in? %>
+		
+		<a href="/poems"><strong><i><%= current_user.nickname + "," + " wyraź siebie!" %></i></strong></a>
+
+		<% else %>		
+		 <a href="/poems"><i>Wyraź siebie...</i></a>
+		<% end %>
+           
+        </div>
+        
+        <div id="header_right">
+        	
+            <a href="#" class="button twitter"></a>
+            <a href="#" class="button mail"></a>
+            <a href="#" class="button rss"></a>
+            
+            <div id="search_box">
+            <!-- NOWA WERSJA WYSZUKIWANIA -->
+            	<% form_tag "/poems/find" do %>
+            	<%= text_field_tag :search_string, "Szukaj tytuł..."  %>
+            	<%= image_submit_tag ("search.png")%>
+            	<% end %>
+            <!-- STARA WERSJA WYSZUKIWANIA
+                <form action="#" method="get">
+                    <input type="text" value="Szukaj w serwisie..." name="q" size="10" id="searchfield" 
+			   title="searchfield" onfocus="clearText(this)" onblur="clearText(this)" />
+                  <input type="submit" name="Search" value="" id="searchbutton" title="Search" />
+                </form>
+                -->
+            </div>
+        
+            <div id="templatemo_menu">
+                <ul>
+			<% if logged_in? %>
+
+		    <li><%= link_to "Wyloguj", logout_path %></li>
+                    <li><%= link_to "Profil", profile_path(current_user) %></li>
+		    <li><%= link_to "Wiersze", poems_path %></li>
+		    <li><%= link_to "Rozdziały", user_chapters_path(current_user) %></li>
+
+			<% else %>
+
+                    <li><%= link_to "Logowanie", login_path %></li>
+                    <li><%= link_to "Rejestracja", new_user_path %></li>
+
+			<% end %>
+					
+                    <li><a href="#" class="last">O serwisie</a></li>
+
+                </ul>    	
+            </div> <!-- end of templatemo_menu -->        
+        </div>
+    </div> <!-- end of templatemo_header -->
+    
+    
+    <div id="templatemo_main">
+    	
+        <div id="templatemo_content_wrapper">
+        <div id="templatemo_content_top"></div>
+        <div id="templatemo_content">
+        	
+        <div class="content_box">
+          
+          <!-- komunkaty błędów -->
+          <%= content_tag :p, notice, :class => 'notice' if notice.present? %>
+          <%= content_tag :p, alert, :class => 'alert' if alert.
+
+	<br/>
+	<br/>
+	<br/>
+	<hr size="1" width="400" align="center"/>
+	<p><b>Tagi:</b></p>
+          <ul class="tmo_list">
+             <li class="col_3"><a href="#">Tag1</a></li>
+             <li class="col_3"><a href="#">Tag2</a></li>
+             <li class="col_3"><a href="#">Tag3</a></li>
+             <li class="col_3"><a href="#">Tag4</a></li>
+             <li class="col_3"><a href="#">Tag5</a></li>
+             <li class="col_3"><a href="#">Tag6</a></li>
+             <li class="col_3"><a href="#">Tag7</a></li>
+             <li class="col_3"><a href="#">Tag8</a></li>
+             <li class="col_3"><a href="#">Tag9</a></li>
+	  </ul>
+
+        </div>
+			        
+
+        </div> <!-- end of content -->
+        <div id="templatemo_content_bottom"></div>
+        </div> <!-- end of content wrapper -->
+        
+        <div id="templatemo_sidebar">
+        
+        	<div class="sidebar_box_wrapper">
+
+                <div class="sidebar_box">
+                    <div class="sb_title"><%= image_tag 'categories.png' %></div>
+                    <div class="sb_content">
+                        <ul class="tmo_list">
+
+			<!-- Listowanie rodziałów, problem, kiedy nie jest sie na rodzialach
+			  # @chapters.each do |chapter| 
+			#<li><a href="#">< chapter.name ></a></li>
+			 #  end 
+			-->
+			<li> Rodział1 </li>
+			<li> Rodział2 </li>
+			<li> Rodział3 </li>
+                        </ul>	
+                    </div>
+                </div>
+                
+                <div class="sidebar_box">
+                    <div class="sb_title"><%= image_tag 'recent_blog_entries.png' %></div>
+                    <div class="sb_content">
+                        <ul class="tmo_list">
+                            <li><a href="#">OstWiersz1</a></li>
+                            <li><a href="#">OstWiersz2</a></li>
+                            <li><a href="#">OstWiersz3</a></li>
+                            <li><a href="#">OstWiersz4</a></li>
+                            <li><a href="#">OstWiersz5</a></li>
+                        </ul>	
+                    </div>
+                </div>
+			</div>
+			
+			<div class="templatemo_cleaner"></div>            
+
+            <div class="templatemo_sidebar_bottom"></div>
+			
+			<div class="templatemo_cleaner"></div>
+            
+			<div>
+                <a href="#" class="ads_125"><%= image_tag 'ads_125.jpg' %></a>
+                <a href="#" class="ads_125"><%= image_tag 'ads_125.jpg' %></a>
+                <a href="#" class="ads_125"><%= image_tag 'ads_125.jpg' %></a>
+                <a href="#" class="ads_125"><%= image_tag 'ads_125.jpg' %></a>			
+			</div>
+
+		  	<div class="templatemo_cleaner"></div>
+			
+	  	<div align="center">
+	       <!-- <a href="http://validator.w3.org/check?uri=referer">
+			<img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10" 
+			     alt="Valid XHTML 1.0 Transitional" width="88" height="31" vspace="8" border="0" />
+		    </a> 
+			&nbsp;&nbsp;&nbsp;
+		    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+			<img style="border:0;width:88px;height:31px"  src="http://jigsaw.w3.org/css-validator/images/vcss-blue" 
+			     alt="Valid CSS!" vspace="8" border="0" />
+		    </a> -->
+		</div>
+           
+        </div> <!-- end of sidebar -->
+    
+    	<div class="clear"></div>
+    </div> <!-- end of main -->
+    
+    <div id="templatemo_footer">
+    	Copyright © 2011 | Powered by <a href="http://wierszopis.art.pl">Wierszopis</a> | 
+		Daniel Landowski, Artur Rybak, Łukasz Kępiński | ASI - 12.01.2011r.
+    </div> <!-- end of footer -->
+    
+</div> <!-- end of wrapper 02 -->
+</div> <!-- end of wrapper 01 -->
+</body>
+</html>

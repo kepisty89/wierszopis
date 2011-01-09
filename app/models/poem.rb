@@ -1,4 +1,9 @@
 class Poem < ActiveRecord::Base
+
+	# paginacja
+	cattr_reader :per_page
+  @@per_page = 5
+
   # model dependencies
   belongs_to :user
   belongs_to :chapter

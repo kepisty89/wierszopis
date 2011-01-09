@@ -1,3 +1,8 @@
+
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag :all, :recursive => true %>
+<% end %>
+
 <h2>Dodaj wiersz</h2>
 
 <%= render 'form' %>

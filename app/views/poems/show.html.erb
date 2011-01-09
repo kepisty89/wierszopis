@@ -1,20 +1,26 @@
 
 <h2>Utwór pt. <i>"<%= @poem.title %>"</i></h2>
 
-<center><div class="editedText"><%= simple_format @poem.body %></div></center>
-
+<center><div class="edite</p>dText"><%= simple_format @poem.body %></div></center>
 
 <br/>
+
 <hr size="1" width="200" align="left"/>
+
 <p>Utworzono: <%= @poem.composed_at %></p>
-<p><a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
-<%= link_to image_tag("edit.png"), edit_poem_path(@poem) %> (edytuj) <br/>
-<%= link_to image_tag("index.png"), poems_path %> (spis wszystkich)
+
+<p>
+	<a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
+	<%= link_to image_tag("edit.png"), edit_poem_path(@poem) %> (edytuj) <br/>
+	<%= link_to image_tag("index.png"), poems_path %> (spis wszystkich)
+</p>
+
 <br/>
 <br/>
 <br/>
 
 <h4><u><i>Komentarze</i></u></h4>
+
 <div id="comments">
   <%= render @poem.comments %>
 </div>

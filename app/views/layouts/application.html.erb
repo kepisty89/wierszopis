@@ -3,7 +3,8 @@
 <head>
   <title>Wierszopis</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :all, :recursive => true %>
+	<%= javascript_include_tag 'application', 'jquery-1.4.4.min', 'rails' %>
+	<%= yield :javascript_includes %>
   <%= csrf_meta_tag %>
 <link rel="icon" href="images/favicon.ico" />
 

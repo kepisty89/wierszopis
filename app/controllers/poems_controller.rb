@@ -4,7 +4,12 @@ class PoemsController < ApplicationController
   # GET /poems
   # GET /poems.xml
   def index
-    @poems = Poem.all
+
+		# wczesniejszy sposob wyswietlania wierszy
+    # @poems = Poem.all
+
+		# wyswietlani wierszy z paginacja
+		@poems = Poem.paginate :page => params[:page], :order => 'created_at DESC'
     
     respond_to do |format|
       format.html # index.html.erb
