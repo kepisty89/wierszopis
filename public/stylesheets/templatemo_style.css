@@ -209,7 +209,11 @@ em { color: #fff; font-weight: 400 }
 	background: url(../images/templatemo_sidebar_title.jpg) top center no-repeat;
 }
 
-.sidebar_box .sb_content { padding: 30px }
+.sidebar_box .sb_content { padding: 20px; }
+
+.user_content > img { margin-right: 5px; }
+.user_content > ul { float: right; list-style-type: none; }
+
 
 a.ads_125 {
 	display: block;
