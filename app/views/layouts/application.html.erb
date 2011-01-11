@@ -16,18 +16,26 @@
     	  <div id="site_title">
 	    <% if logged_in? %>
 	    
-	    <a href="/poems"><strong><i><%= current_user.nickname + "," + " wyraź siebie!" %></i></strong></a>
+	    <a href="/poems"><strong><i><%= current_user.nickname + "," + " wyraź siebie!" %></i></strong>
+				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsigma.ug.edu.pl%3A8064&amp;layout=button_count&amp;show_faces=true&amp;width=400&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:21px;" allowTransparency="true">
+				</iframe>
+			</a>
 
 	    <% else %>		
-	    <a href="/poems"><i>Wyraź siebie...</i></a>
+
+	    <a href="/poems"><i>Wyraź siebie...</i>
+				<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fsigma.ug.edu.pl%3A8064&amp;layout=button_count&amp;show_faces=true&amp;width=400&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:400px; height:21px;" allowTransparency="true">
+				</iframe>
+			</a>
+
 	    <% end %>
             
           </div>
           
           <div id="header_right">
             
-            <a href="#" class="button twitter"></a>
-            <a href="#" class="button mail"></a>
+            <!-- <a href="#" class="button twitter"></a> -->
+            <a href="mailto:wierszopis@wierszopis.pl" class="button mail"></a>
             <a href="#" class="button rss"></a>
             
             <div id="search_box">
@@ -47,17 +55,18 @@
             
             <div id="templatemo_menu">
               <ul>
+
 		<% if logged_in? %>
 
-		<li><%= link_to "Wyloguj", logout_path %></li>
-                <li><%= link_to "Profil", profile_path(current_user) %></li>
-		<li><%= link_to "Wiersze", poems_path %></li>
-		<li><%= link_to "Rozdziały", user_chapters_path(current_user) %></li>
+			<li><%= link_to "Wyloguj", logout_path %></li>
+		  <li><%= link_to "Profil", profile_path(current_user) %></li>
+			<li><%= link_to "Wiersze", poems_path %></li>
+			<li><%= link_to "Rozdziały", user_chapters_path(current_user) %></li>
 
 		<% else %>
 
-                <li><%= link_to "Logowanie", login_path %></li>
-                <li><%= link_to "Rejestracja", new_user_path %></li>
+      <li><%= link_to "Logowanie", login_path %></li>
+      <li><%= link_to "Rejestracja", new_user_path %></li>
 
 		<% end %>
 		
@@ -113,7 +122,7 @@
 
               <% if logged_in? %>                  
               <div class="sidebar_box">
-                <div class="sb_title">User Panel</div>
+                <div class="sb_title"><%= image_tag 'kokpit.png' %></div>
                 <div class="sb_content">
                   <div class="user_content">
                   <%= image_tag avatar_url(current_user), :align => :top %>
@@ -152,12 +161,11 @@
                     <li><a href="#">OstWiersz2</a></li>
                     <li><a href="#">OstWiersz3</a></li>
                     <li><a href="#">OstWiersz4</a></li>
-                    <li><a href="#">OstWiersz5</a></li>
                   </ul>	
                 </div>
               </div>
 	    </div>
-	    
+               
 	    <div class="templatemo_cleaner"></div>            
 
             <div class="templatemo_sidebar_bottom"></div>
