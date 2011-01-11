@@ -1,0 +1,17 @@
+xml.instruct! :xml, :version => "1.0" 
+xml.rss :version => "2.0" do
+  xml.channel do
+    xml.title "Wierszopis"
+    xml.description "Nowe wiersze jak na dłoni!"
+
+    
+    for poem in @poems
+      xml.item do
+        xml.title poem.title
+        xml.pubDate poem.created_at.to_s(:rfc822)
+        xml.link poem_path(poem)
+				xml.link url_for :only_path => false, :controller => 'poems', :action => 'show', :id => poem.id
+      end
+    end
+  end
+end

@@ -14,8 +14,17 @@ class PoemsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @poems }
+			format.rss
     end
   end
+
+	# kanal RSS
+	def rss
+	  @poems = Poem.find(:all, :order => "id DESC", :limit => 10)
+	  render :layout => false
+	  response.headers["Content-Type"] = "application/xml; charset=utf-8"
+	end
+
 
   # GET /poems/1
   # GET /poems/1.xml

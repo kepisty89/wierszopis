@@ -14,6 +14,9 @@ Wierszopis::Application.routes.draw do |map|
   # strona glowna
   root :to => "poems#index"
 
+	# kanal rss
+  map.connect '/rss.xml', :controller => 'poems', :action => 'rss'
+
   match '/login' => "sessions#new", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
   

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head>	
     <title>Wierszopis</title>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag 'application', 'jquery-1.4.4.min', 'rails' %>
     <%= yield :javascript_includes %>
     <%= csrf_meta_tag %>
     <link rel="icon" href="images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="/poems/" />
   </head>
   <body>
     <div id="templatemo_wrapper_01">
