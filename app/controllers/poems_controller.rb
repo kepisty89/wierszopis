@@ -1,29 +1,29 @@
 class PoemsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show]
+  before_filter :authenticate, :except => [:index, :show, :rss]
 
   # GET /poems
   # GET /poems.xml
   def index
 
-		# wczesniejszy sposob wyswietlania wierszy
+    # wczesniejszy sposob wyswietlania wierszy
     # @poems = Poem.all
-
-		# wyswietlani wierszy z paginacja
-		@poems = Poem.paginate :page => params[:page], :order => 'created_at DESC'
+    
+    # wyswietlani wierszy z paginacja
+    @poems = Poem.paginate :page => params[:page], :order => 'created_at DESC'
     
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @poems }
-			format.rss
+      format.rss
     end
   end
 
-	# kanal RSS
-	def rss
-	  @poems = Poem.find(:all, :order => "id DESC", :limit => 10)
-	  render :layout => false
-	  response.headers["Content-Type"] = "application/xml; charset=utf-8"
-	end
+  # kanal RSS
+  def rss
+    @poems = Poem.find(:all, :order => "id DESC", :limit => 10)
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
 
 
   # GET /poems/1
