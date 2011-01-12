@@ -118,16 +118,7 @@
               </div>
               <% end %>
 
-              <div class="sidebar_box">
-                <div class="sb_title"><%= image_tag 'recent_blog_entries.png' %></div>
-                <div class="sb_content">
-                  <ul class="tmo_list">
-                    <% recent_poems.each do |p| %>
-                    <li><%= link_to p.title, poem_path(p) %></li>
-                    <% end %>
-                  </ul>	
-                </div>
-              </div>
+              
               
               <% if logged_in? %>                  
             <div class="sidebar_box">
@@ -144,6 +135,18 @@
               </div>
             </div>
             <% end %>
+            
+            <div class="sidebar_box">
+                <div class="sb_title"><%= image_tag 'recent_blog_entries.png' %></div>
+                <div class="sb_content">
+                  <ul class="tmo_list">
+                    <% recent_poems.each do |p| %>
+                    <li><%= link_to p.title, poem_path(p) %></li>
+                    <% end %>
+                  </ul>	
+                </div>
+              </div>
+            
             </div>
             
             
