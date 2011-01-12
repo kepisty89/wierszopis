@@ -128,7 +128,8 @@
                   </ul>	
                 </div>
               </div>
-
+              
+              <% if logged_in? %>                  
             <div class="sidebar_box">
               <div class="sb_title"><%= image_tag 'categories.png' %></div>
               <div class="sb_content">
@@ -142,6 +143,7 @@
                 </ul>	
               </div>
             </div>
+            <% end %>
             </div>
             
             
