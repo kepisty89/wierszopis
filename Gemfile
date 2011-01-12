@@ -11,6 +11,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'thin'
+gem 'acts-as-taggable-on'
 
 # Deploy with Capistrano
 # gem 'capistrano'

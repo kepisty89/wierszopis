@@ -1,7 +1,8 @@
 class Poem < ActiveRecord::Base
-
-	# paginacja
-	cattr_reader :per_page
+  acts_as_taggable_on :tags
+  
+  # paginacja
+  cattr_reader :per_page
   @@per_page = 5
 
   # model dependencies

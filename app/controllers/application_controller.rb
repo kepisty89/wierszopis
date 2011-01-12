@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  
   def user_chapters(user)
     return user.chapters.all
   end

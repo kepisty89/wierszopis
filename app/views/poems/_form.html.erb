@@ -38,6 +38,10 @@
     <%= f.date_select :composed_at, :order => [:day, :month, :year],
     :start_year => Time.now.year - 100, :end_year => Time.now.year %>
   </div>
+  <div class="field">
+    <%= f.label "Tagi:" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
   <br/>
   <br/>
 
