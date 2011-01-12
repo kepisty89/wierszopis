@@ -42,7 +42,7 @@
             <div id="search_box">
               <!-- NOWA WERSJA WYSZUKIWANIA -->
               <% form_tag "/poems/find" do %>
-              <%= text_field_tag :search_string, "Szukaj tytuł..."  %>
+              <%= text_field_tag :search_string, "Szukaj tytuł...", :onfocus=>"if(this.value=='Szukaj tytuł...')this.value='';"  %>
               <%= image_submit_tag ("search.png")%>
               <% end %>
               <!-- STARA WERSJA WYSZUKIWANIA
