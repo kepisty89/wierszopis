@@ -4,6 +4,7 @@ log/*.log
 tmp/**/*
 lib/log/*.log
 lib/tmp/**/*
+public/audios/*
 *.gem
 *~
 .\#*
