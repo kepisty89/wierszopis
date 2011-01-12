@@ -1,14 +1,13 @@
-
 <h2>Utwór pt. <i>"<%= @poem.title %>"</i></h2>
 
 <div class="edite</p>dText">
-	<table>
-		<tr>
-			<td>
-		<center><%= simple_format @poem.body %></center>
-			</td>
-		</tr>
-	</table>
+  <table>
+    <tr>
+      <td>
+	<center><%= simple_format @poem.body %></center>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <br/>
@@ -18,14 +17,17 @@
 <p>Utworzono: <%= @poem.composed_at %></p>
 
 <p>
-	<a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
-	<%= link_to image_tag("edit.png"), edit_poem_path(@poem) %> (edytuj) <br/>
-	<%= link_to image_tag("index.png"), poems_path %> (spis wszystkich)
+  <a href="javascript:history.go(-1);"><%= image_tag 'back.png' %></a> (powrót) <br/>
+  <%= link_to image_tag("edit.png"), edit_poem_path(@poem) %> (edytuj) <br/>
+  <%= link_to image_tag("index.png"), poems_path %> (spis wszystkich)
 </p>
 
 <br/>
 <br/>
 <br/>
+
+<h4><%= audio_tag("music.mp3", :autoplay => true, :controls => true)  %></h4>
+<br />
 
 <h4><u><i>Komentarze</i></u></h4>
 
