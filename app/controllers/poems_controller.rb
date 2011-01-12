@@ -63,7 +63,7 @@ class PoemsController < ApplicationController
 
     respond_to do |format|
       if @poem.save
-        format.html { redirect_to(@poem, :notice => 'Poem was successfully created.') }
+        format.html { redirect_to(@poem, :notice => 'Utworzono wiersz.') }
         format.xml  { render :xml => @poem, :status => :created, :location => @poem }
       else
         format.html { render :action => "new" }
@@ -83,7 +83,7 @@ class PoemsController < ApplicationController
 
     respond_to do |format|
       if @poem.update_attributes(params[:poem])
-        format.html { redirect_to(@poem, :notice => 'Poem was successfully updated.') }
+        format.html { redirect_to(@poem, :notice => 'Zaktualizowano wiersz.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

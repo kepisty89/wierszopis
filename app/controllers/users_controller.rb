@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       profile.save
       @user.profile = profile
       session[:user_id] = @user.id
-      redirect_to poems_path,  :notice => 'User added and Logged In. Please update your Profile'
+      redirect_to poems_path,  :notice => 'Uzytkownik dodany i zalogowany. Zaktualizuj swoj Profil'
     else
       render :action => 'new'
     end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update_attributes(params[:user])
       redirect_to poems_path,
-      :notice => 'Updated user information successfully.'
+      :notice => 'Zaktualizowano informacje o uzytkowniku.'
     else
       render :action => 'edit'
     end
