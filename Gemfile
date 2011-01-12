@@ -13,6 +13,9 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'thin'
 gem 'acts-as-taggable-on'
 
+# zalaczniki
+gem "paperclip", "~> 2.3"
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

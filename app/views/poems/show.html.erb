@@ -26,7 +26,10 @@
 <br/>
 <br/>
 
-<h4><%= audio_tag("music.mp3", :autoplay => true, :controls => true)  %></h4>
+<% if !@poem.mp3_file_name.nil? %>
+<h4><%= audio_tag(@poem.mp3_file_name, :autoplay => true, :controls =>
+  true)  %></h4>
+<% end %>
 <br />
 
 <h4><u><i>Komentarze</i></u></h4>

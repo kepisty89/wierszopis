@@ -1,4 +1,4 @@
-<%= form_for(@poem) do |f| %>
+<%= form_for(@poem, :html => { :multipart => true}) do |f| %>
   <% if @poem.errors.any? %>
     <div id="error_explanation">
 	<font color="red"><h4>Oj, liczba błędów: <%= pluralize(@poem.errors.count, "error") %></h4>
@@ -38,12 +38,14 @@
     <%= f.date_select :composed_at, :order => [:day, :month, :year],
     :start_year => Time.now.year - 100, :end_year => Time.now.year %>
   </div>
-  <% if false %>
   <div class="field">
     <%= f.label "Tagi:" %><br />
     <%= f.text_field :tag_list %>
   </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :mp3 %><br />
+    <%= f.file_field :mp3 %>
+  </div>
   <br/>
   <br/>
 

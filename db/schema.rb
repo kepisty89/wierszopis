@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112004109) do
+ActiveRecord::Schema.define(:version => 20110112174015) do
 
   create_table "chapters", :force => true do |t|
     t.integer  "user_id"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(:version => 20110112004109) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.string   "mp3_file_name"
+    t.string   "mp3_content_type"
+    t.integer  "mp3_file_size"
   end
 
   create_table "profiles", :force => true do |t|
