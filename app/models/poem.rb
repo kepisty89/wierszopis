@@ -1,7 +1,7 @@
 class Poem < ActiveRecord::Base
   acts_as_taggable_on :tags
   has_attached_file :mp3
-  has_attached_file :mp3, :path => ":rails_root/public/audios/:basename.:extension"
+  has_attached_file :mp3, :path => ":rails_root/public/audios/:id/:basename.:extension"
   
   # paginacja
   cattr_reader :per_page
