@@ -1,3 +1,14 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag 'audiojs/audio.min.js' %>
+
+	<script>
+		audiojs.events.ready(function() {
+		  var as = audiojs.createAll();
+		});
+	</script>
+
+<% end %>
+
 <h2>Utwór pt. <i>"<%= @poem.title %>"</i></h2>
 
 <div class="edite</p>dText">
@@ -27,8 +38,16 @@
 <br/>
 
 <% if !@poem.mp3_file_name.nil? %>
-<h4><%= audio_tag(@poem.id.to_s + "/" + @poem.mp3_file_name, :autoplay => true, :controls =>
-  true)  %></h4>
+
+	<h4>
+		<audio src="/audios/<%= @poem.id.to_s + "/" + @poem.mp3_file_name %>" preload="auto" />
+	</h4>
+
+	<!-- Stara wersja odtwarzacza	
+		<h4>
+			<%= audio_tag(@poem.id.to_s + "/" + @poem.mp3_file_name, :autoplay => true, :controls => true)  %>
+		</h4>
+	-->
 <% end %>
 <br />
 
