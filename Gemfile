@@ -37,3 +37,5 @@ gem 'sprockets-rails', '3.2.2'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
