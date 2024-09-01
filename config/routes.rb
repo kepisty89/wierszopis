@@ -5,20 +5,22 @@ Wierszopis::Application.routes.draw do |map|
   end
   resources :chapters
   resources :credits
-  resources :poems do 
+  resources :poems do
     resources :comments
   end
-  map.connect '/:controller/:action/:id' #akcja 'find'
+
+  get '/poems/find', to: 'poems#find' #akcja 'find'
+  get '/poems/index', to: 'poems#index'
+
   resource :session
 
   # strona glowna
-  root :to => "poems#index"
+  root to: 'poems#index'
 
 	# kanal rss
-  map.connect '/rss.xml', :controller => 'poems', :action => 'rss'
+  get '/rss.xml', to: 'poems#rss'
 
-  match '/login' => "sessions#new", :as => "login"
-  match '/logout' => "sessions#destroy", :as => "logout"
-  
+  get '/login' => 'sessions#new', as: 'login'
+  get '/logout' => 'sessions#destroy', as: 'logout'
 
 end

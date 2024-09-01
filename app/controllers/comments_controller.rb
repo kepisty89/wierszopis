@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_filter :load_poem, :except => :destroy
-  before_filter :authenticate, :only => :destroy
+  before_action :load_poem, :except => :destroy
+  before_action :authenticate, :only => :destroy
 
   def create
     @comment = @poem.comments.new(params[:comment])

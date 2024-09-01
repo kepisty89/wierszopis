@@ -1,5 +1,5 @@
 class PoemsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show, :rss]
+  before_action :authenticate, :except => [:index, :show, :rss]
 
   # GET /poems
   # GET /poems.xml
@@ -7,10 +7,10 @@ class PoemsController < ApplicationController
 
     # wczesniejszy sposob wyswietlania wierszy
     # @poems = Poem.all
-    
+
     # wyswietlani wierszy z paginacja
-    @poems = Poem.paginate :page => params[:page], :order => 'created_at DESC'
-    
+    @poems = Poem.order('created_at DESC').paginate(page: params[:page])
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @poems }
@@ -107,7 +107,7 @@ class PoemsController < ApplicationController
       end
     end
   end
-  
+
   def find
     @found_poems = Poem.find(:all, :conditions=>["title LIKE ?", "%#{params[:search_string]}%"])
   end
