@@ -53,4 +53,6 @@ Wierszopis::Application.configure do
   config.assets.compile = false
   config.assets.digest = true
   config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+  config.hosts << "wierszopis.onrender.com"
 end
