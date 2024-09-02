@@ -91,8 +91,6 @@ GEM
     crass (1.0.6)
     daemons (1.4.1)
     date (3.3.4)
-    dockerfile-rails (1.6.17)
-      rails (>= 3.0.0)
     drb (2.2.1)
     erubi (1.13.0)
     eventmachine (1.2.7)
@@ -227,7 +225,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-session_store
   acts-as-taggable-on
-  dockerfile-rails (>= 1.6)
+  nokogiri (>= 1.6, < 2.0)
   paperclip (~> 6.1.0)
   rails (= 7.2.1)
   sprockets-rails (= 3.2.2)

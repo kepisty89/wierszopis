@@ -19,6 +19,8 @@ gem "paperclip", "~> 6.1.0"
 
 gem 'sprockets-rails', '3.2.2'
 
+gem 'nokogiri', '>= 1.6', '< 2.0', platforms: :ruby
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -37,5 +39,3 @@ gem 'sprockets-rails', '3.2.2'
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-gem "dockerfile-rails", ">= 1.6", :group => :development
