@@ -52,4 +52,5 @@ Wierszopis::Application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.assets.digest = true
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
 end
