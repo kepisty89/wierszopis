@@ -14,6 +14,7 @@ class ChaptersController < ApplicationController
   # GET /chapters/1.xml
   def show
     @chapter = Chapter.find(params[:id])
+    @poems = Poem.find_by(chapter: @chapter) || []
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,7 +41,7 @@ class ChaptersController < ApplicationController
   # POST /chapters
   # POST /chapters.xml
   def create
-    @chapter = Chapter.new(params[:chapter])
+    @chapter = Chapter.new(chapter_params)
     @chapter.user_id = current_user.id
 
     respond_to do |format|
@@ -80,5 +81,11 @@ class ChaptersController < ApplicationController
       format.html { redirect_to(chapters_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+
+  def chapter_params
+    params.require(:chapter).permit(:name, :description)
   end
 end

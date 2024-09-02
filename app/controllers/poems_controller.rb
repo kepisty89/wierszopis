@@ -59,7 +59,7 @@ class PoemsController < ApplicationController
   # POST /poems
   # POST /poems.xml
   def create
-    @poem = current_user.poems.new(params[:poem])
+    @poem = current_user.poems.new(poem_params)
 
     respond_to do |format|
       if @poem.save
@@ -82,7 +82,7 @@ class PoemsController < ApplicationController
 
 
     respond_to do |format|
-      if @poem.update_attributes(params[:poem])
+      if @poem.update(poem_params)
         format.html { redirect_to(@poem, :notice => 'Zaktualizowano wiersz.') }
         format.xml  { head :ok }
       else
@@ -110,5 +110,11 @@ class PoemsController < ApplicationController
 
   def find
     @found_poems = Poem.where("title LIKE ?", "%#{params[:search_string]}%")
+  end
+
+  private
+
+  def poem_params
+    params.require(:poem).permit(:title, :body, :chapter_id, :composed_at, :tag_list) # Add any other permitted parameters here
   end
 end

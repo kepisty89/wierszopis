@@ -59,7 +59,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     respond_to do |format|
-      if @profile.update_attributes(profile_params)
+      if @profile.update(profile_params)
         format.html { redirect_to(@profile, :notice => 'Zaktualizowano profil.') }
         format.xml  { head :ok }
       else

@@ -12,7 +12,6 @@ gem 'activerecord-session_store'
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'thin'
-gem 'acts-as-taggable-on'
 
 # zalaczniki
 gem "paperclip", "~> 6.1.0"
@@ -24,7 +23,7 @@ gem 'nokogiri', '>= 1.6', '< 2.0', platforms: :ruby
 group :tools do
   gem 'squasher', '>= 0.8.0'
 end
-
+# RAILS_ENV=development bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
 # Deploy with Capistrano
 # gem 'capistrano'
 

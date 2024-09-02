@@ -38,21 +38,12 @@
 <br />
 
 <p>
-   <%= link_to image_tag("add.png"), new_poem_path %>
+   <%= link_to image_tag("add.png"), new_poem_path %>  (dodaj)
    <% unless @current_user.nil? %>
    <%= link_to image_tag("chapters.png"), chapters_path %>
    <% end %>
 </p>
 
 <br />
-
-
-<p><b>Legenda:</b><br/>
-	<%= image_tag("show.png") %> (pokaż)  |  
-	<%= image_tag("edit.png") %> (edytuj)  |  
-	<%= image_tag("add.png") %> (dodaj) |  
-	<%= image_tag("delete.png") %> (usuń) |
-	<%= image_tag("chapters.png") %> (rodziały)
-</p>
 
 
