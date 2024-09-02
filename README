@@ -11,6 +11,12 @@ Dokument wizji dla projektu "Wierszopis":
 Data: 12.01.2011r.
 
 
+## Installation
+```
+bundle install
+bundle exec rake db:setup
+bundle exec rails s
+```
 
 -> Wprowadzenie
 =================
