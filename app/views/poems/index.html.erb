@@ -6,6 +6,7 @@
 <table width="560">
 		<tr>
 		  <th width="160px">Tytuł</th>
+		  <th width="160px">Autor</th>
 		  <th width="160px">Rozdział</th>
 		  <th width="160px">Napisany</th>
 		  <th></th>
@@ -15,6 +16,7 @@
 	<% @poems.each do |poem| %>
 		<tr>
 		  <td width="160px" align="center"><%= poem.title %></td>
+		  <td width="160px" align="center"><%= poem.author %></td>
 		  <td width="160px" align="center"><%= if
 		  !poem.chapter.nil? then poem.chapter.name else "" end %></td>
 		  <td width="160px" align="center"><%= poem.composed_at %></td>	
@@ -37,7 +39,9 @@
 
 <p>
    <%= link_to image_tag("add.png"), new_poem_path %>
+   <% unless @current_user.nil? %>
    <%= link_to image_tag("chapters.png"), chapters_path %>
+   <% end %>
 </p>
 
 <br />

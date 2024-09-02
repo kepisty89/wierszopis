@@ -8,8 +8,8 @@ class Poem < ActiveRecord::Base
   @@per_page = 5
 
   # model dependencies
-  belongs_to :user
-  belongs_to :chapter
+  belongs_to :user, required: true
+  belongs_to :chapter, required: true
   has_many :comments, -> { order('created_at DESC') }, dependent: :destroy
 
   # validators
@@ -19,12 +19,11 @@ class Poem < ActiveRecord::Base
   scope :recent, lambda { |term| order("poems.created_at DESC").limit("#{term}") }
 
   def owned_by?(current_user)
-    return false unless current_user.is_a? User
-    current_user.id == self.user_id
+    return false if current_user.nil?
+    current_user.id == user_id
   end
 
   def author
-    usr = self.user
-    return usr.profile.full_name
+    user&.profile&.full_name || 'unknown'
   end
 end

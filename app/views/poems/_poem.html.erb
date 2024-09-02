@@ -1,4 +1,4 @@
-<%= div_for poem do %>
+<%= tag.div id: dom_id(poem), class: dom_class(poem) do %>
 <h3>
   <%= link_to poem.title, poem %>
   <span class='author'>
@@ -7,7 +7,7 @@
   <% if poem.owned_by? current_user %>
   <span class='actions'>
     <%= link_to "Edit", edit_poem_path(poem) %>
-    <%= link_to "Delete", poem, :confirm => "Are you sure?", :method => :delete %>
+    <%= link_to "Delete", poem, data: { confirm: "Are you sure?" }, method: :delete %>
   </span>
   <% end %>
 </h3>

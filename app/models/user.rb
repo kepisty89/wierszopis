@@ -2,6 +2,7 @@ require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor :password # creates read/write methods (accessors)
+
   # for non existing active-record position
 
   # model dependencies

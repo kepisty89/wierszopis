@@ -9,7 +9,7 @@ Wierszopis::Application.routes.draw do |map|
     resources :comments
   end
 
-  get '/poems/find', to: 'poems#find' #akcja 'find'
+  post '/poems/find', to: 'poems#find' #akcja 'find'
   get '/poems/index', to: 'poems#index'
 
   resource :session

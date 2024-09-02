@@ -21,6 +21,10 @@ gem 'sprockets-rails', '3.2.2'
 
 gem 'nokogiri', '>= 1.6', '< 2.0', platforms: :ruby
 
+group :tools do
+  gem 'squasher', '>= 0.8.0'
+end
+
 # Deploy with Capistrano
 # gem 'capistrano'
 

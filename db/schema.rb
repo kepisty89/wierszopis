@@ -15,8 +15,8 @@ ActiveRecord::Schema[7.2].define(version: 2011_01_12_174015) do
     t.integer "user_id"
     t.string "name"
     t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -25,16 +25,16 @@ ActiveRecord::Schema[7.2].define(version: 2011_01_12_174015) do
     t.string "name"
     t.string "email"
     t.text "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "credits", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "img_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "poems", force: :cascade do |t|
@@ -42,8 +42,8 @@ ActiveRecord::Schema[7.2].define(version: 2011_01_12_174015) do
     t.integer "chapter_id"
     t.date "composed_at"
     t.text "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "title"
     t.string "mp3_file_name"
     t.string "mp3_content_type"
@@ -59,29 +59,30 @@ ActiveRecord::Schema[7.2].define(version: 2011_01_12_174015) do
     t.string "gender"
     t.text "site"
     t.text "bio"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["session_id"], name: "index_sessions_on_session_id"
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
   create_table "taggings", force: :cascade do |t|
     t.integer "tag_id"
-    t.integer "taggable_id"
     t.string "taggable_type"
-    t.integer "tagger_id"
+    t.integer "taggable_id"
     t.string "tagger_type"
+    t.integer "tagger_id"
     t.string "context"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
-    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -92,7 +93,7 @@ ActiveRecord::Schema[7.2].define(version: 2011_01_12_174015) do
     t.string "nickname"
     t.string "email"
     t.string "hashed_password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 end
