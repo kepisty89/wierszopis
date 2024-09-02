@@ -18,6 +18,10 @@ bundle exec rake db:setup
 bundle exec rails s
 ```
 
+## Deployment
+https://wierszopis.onrender.com
+
+
 -> Wprowadzenie
 =================
   Dokument dotyczy projektu realizowanego w ramach zajęć z Architektury serwisów internetowych. 
