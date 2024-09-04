@@ -46,4 +46,13 @@ Wierszopis::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.eager_load = true
+
+  config.assets.js_compressor = :uglifier
+  config.assets.compile = false
+  config.assets.digest = true
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
+
+  config.hosts << "wierszopis.onrender.com"
 end

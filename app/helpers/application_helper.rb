@@ -1,10 +1,7 @@
 module ApplicationHelper
   # Creates a submit button with the given name with a cancel link
   # Accepts two arguments: Form object and the cancel link name
-  include ActsAsTaggableOn::TagsHelper
-  
 
-  
   def submit_or_cancel(form, name='Cancel')
     form.submit + " or " + link_to(name, 'javascript:history.go(-1);', :class => 'cancel')
   end
@@ -18,8 +15,7 @@ module ApplicationHelper
   end
 
   def avatar_url(user)
-    default_url = "#{root_url}images/guest.png"
     gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=80&d=#{CGI.escape(default_url)}"
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=80&d=identicon"
   end
 end

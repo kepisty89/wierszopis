@@ -1,21 +1,29 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
-gem "will_paginate", "~> 3.0.pre2"
+gem 'rails', '7.2.1'
+gem "will_paginate", "~> 4.0.1"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3'
+gem 'activerecord-session_store'
 
 # Use unicorn as the web server
 # gem 'unicorn'
 gem 'thin'
-gem 'acts-as-taggable-on'
 
 # zalaczniki
-gem "paperclip", "~> 2.3"
+gem "paperclip", "~> 6.1.0"
 
+gem 'sprockets-rails', '3.2.2'
+
+gem 'nokogiri', '>= 1.6', '< 2.0', platforms: :ruby
+
+group :tools do
+  gem 'squasher', '>= 0.8.0'
+end
+# RAILS_ENV=development bundle exec puma -t 5:5 -p ${PORT:-3000} -e ${RACK_ENV:-development}
 # Deploy with Capistrano
 # gem 'capistrano'
 

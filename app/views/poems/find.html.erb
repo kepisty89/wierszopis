@@ -13,7 +13,7 @@
 
 <% for poem in @found_poems %>
 
-	<%= div_for poem do %>
+  <%= tag.div id: dom_id(poem), class: dom_class(poem) do %>
 
 	<tr>
     <td width="160px" align="center"><%= link_to poem.title, poem %></td>

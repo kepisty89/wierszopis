@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:edit, :update]
-  
+  before_action :authenticate, :only => [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -8,25 +8,26 @@ class UsersController < ApplicationController
   def show
     @user = current_user
   end
-  
+
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.save
       User.authenticate(@user.email, @user.password)
       profile = Profile.new
       profile.save
       @user.profile = profile
       session[:user_id] = @user.id
+      @current_user = @user
       redirect_to poems_path,  :notice => 'Uzytkownik dodany i zalogowany. Zaktualizuj swoj Profil'
     else
       render :action => 'new'
     end
   end
-  
+
   def edit
     @user = current_user
   end
-  
+
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
@@ -42,5 +43,9 @@ class UsersController < ApplicationController
     @chapters = @user.chapters
 
     render @chapters
+  end
+
+  def user_params
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation)
   end
 end

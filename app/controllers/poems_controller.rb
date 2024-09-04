@@ -1,5 +1,5 @@
 class PoemsController < ApplicationController
-  before_filter :authenticate, :except => [:index, :show, :rss]
+  before_action :authenticate, :except => [:index, :show, :rss, :find]
 
   # GET /poems
   # GET /poems.xml
@@ -7,10 +7,10 @@ class PoemsController < ApplicationController
 
     # wczesniejszy sposob wyswietlania wierszy
     # @poems = Poem.all
-    
+
     # wyswietlani wierszy z paginacja
-    @poems = Poem.paginate :page => params[:page], :order => 'created_at DESC'
-    
+    @poems = Poem.order('created_at DESC').paginate(page: params[:page])
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @poems }
@@ -59,7 +59,7 @@ class PoemsController < ApplicationController
   # POST /poems
   # POST /poems.xml
   def create
-    @poem = current_user.poems.new(params[:poem])
+    @poem = current_user.poems.new(poem_params)
 
     respond_to do |format|
       if @poem.save
@@ -82,7 +82,7 @@ class PoemsController < ApplicationController
 
 
     respond_to do |format|
-      if @poem.update_attributes(params[:poem])
+      if @poem.update(poem_params)
         format.html { redirect_to(@poem, :notice => 'Zaktualizowano wiersz.') }
         format.xml  { head :ok }
       else
@@ -107,8 +107,14 @@ class PoemsController < ApplicationController
       end
     end
   end
-  
+
   def find
-    @found_poems = Poem.find(:all, :conditions=>["title LIKE ?", "%#{params[:search_string]}%"])
+    @found_poems = Poem.where("title LIKE ?", "%#{params[:search_string]}%")
+  end
+
+  private
+
+  def poem_params
+    params.require(:poem).permit(:title, :body, :chapter_id, :composed_at, :tag_list) # Add any other permitted parameters here
   end
 end

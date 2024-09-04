@@ -2,7 +2,7 @@
 <html>
   <head>	
     <title>Wierszopis</title>
-    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'jquery-1.4.4.min', 'rails' %>
     <%= yield :javascript_includes %>
     <%= csrf_meta_tag %>
@@ -41,7 +41,7 @@
             
             <div id="search_box">
               <!-- NOWA WERSJA WYSZUKIWANIA -->
-              <% form_tag "/poems/find" do %>
+              <%= form_with url: "/poems/find", local: true do %>
               <%= text_field_tag :search_string, "Szukaj tytuł...", :onfocus=>"if(this.value=='Szukaj tytuł...')this.value='';"  %>
               <%= image_submit_tag ("search.png")%>
               <% end %>

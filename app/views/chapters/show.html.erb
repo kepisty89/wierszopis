@@ -14,7 +14,7 @@
 
 <p>
   <b>Zawiera wiersze:</b>
-  <% Poem.find_all_by_chapter_id(@chapter).each do |p| %>
+  <% @poems.each do |p| %>
    <li><%= link_to p.title, poem_path(p) %></li>
   <% end %>
 </p>

@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.xml
   def create
-    @profile = Profile.new(params[:profile])
+    @profile = Profile.new(profile_params)
 
     respond_to do |format|
       if @profile.save
@@ -59,7 +59,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
 
     respond_to do |format|
-      if @profile.update_attributes(params[:profile])
+      if @profile.update(profile_params)
         format.html { redirect_to(@profile, :notice => 'Zaktualizowano profil.') }
         format.xml  { head :ok }
       else
@@ -79,5 +79,9 @@ class ProfilesController < ApplicationController
       format.html { redirect_to(profiles_url) }
       format.xml  { head :ok }
     end
+  end
+
+  def profile_params
+    params.require(:profile).permit(:name, :surname, :place, :birthday, :gender, :site, :bio)
   end
 end
